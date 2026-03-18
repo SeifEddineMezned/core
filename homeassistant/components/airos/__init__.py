@@ -126,11 +126,11 @@ async def async_migrate_entry(hass: HomeAssistant, entry: AirOSConfigEntry) -> b
         new_version = 2
         new_minor_version = 1
 
-        mac_adress = dr.format_mac(entry.unique_id)
+        mac_address = dr.format_mac(entry.unique_id)
 
         device_registry = dr.async_get(hass)
         if device_entry := device_registry.async_get_device(
-            connections={(dr.CONNECTION_NETWORK_MAC, mac_adress)}
+            connections={(dr.CONNECTION_NETWORK_MAC, mac_address)}
         ):
             old_device_id = next(
                 (
@@ -147,7 +147,7 @@ async def async_migrate_entry(hass: HomeAssistant, entry: AirOSConfigEntry) -> b
                 """Update unique id from device_id to mac address."""
                 if old_device_id and entity_entry.unique_id.startswith(old_device_id):
                     suffix = entity_entry.unique_id.removeprefix(old_device_id)
-                    new_unique_id = f"{mac_adress}{suffix}"
+                    new_unique_id = f"{mac_address}{suffix}"
                     return {"new_unique_id": new_unique_id}
                 return None
 
@@ -155,7 +155,7 @@ async def async_migrate_entry(hass: HomeAssistant, entry: AirOSConfigEntry) -> b
 
             new_identifiers = device_entry.identifiers.copy()
             new_identifiers.discard((DOMAIN, old_device_id))
-            new_identifiers.add((DOMAIN, mac_adress))
+            new_identifiers.add((DOMAIN, mac_address))
             device_registry.async_update_device(
                 device_entry.id, new_identifiers=new_identifiers
             )
