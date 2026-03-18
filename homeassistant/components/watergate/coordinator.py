@@ -50,6 +50,7 @@ class WatergateDataCoordinator(DataUpdateCoordinator[WatergateAgregatedRequests]
         self.api = api
 
     async def _async_update_data(self) -> WatergateAgregatedRequests:
+        """Fetch data from Watergate."""
         try:
             state = await self.api.async_get_device_state()
             telemetry = await self.api.async_get_telemetry_data()

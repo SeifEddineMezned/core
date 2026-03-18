@@ -55,6 +55,7 @@ class AltruistDataUpdateCoordinator(DataUpdateCoordinator[dict[str, str]]):
             raise ConfigEntryNotReady("Error in Altruist setup") from e
 
     async def _async_update_data(self) -> dict[str, str]:
+        """Fetch data from Altruist."""
         try:
             fetched_data = await self.client.fetch_data()
         except AltruistError as ex:

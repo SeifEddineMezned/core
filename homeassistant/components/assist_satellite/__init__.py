@@ -60,6 +60,7 @@ PLATFORM_SCHEMA_BASE = cv.PLATFORM_SCHEMA_BASE
 
 
 async def async_setup(hass: HomeAssistant, config: ConfigType) -> bool:
+    """Set up the Assist Satellite integration."""
     component = hass.data[DATA_COMPONENT] = EntityComponent[AssistSatelliteEntity](
         _LOGGER, DOMAIN, hass
     )

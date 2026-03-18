@@ -39,6 +39,7 @@ class WAQIDataUpdateCoordinator(DataUpdateCoordinator[WAQIAirQuality]):
         self.subentry = subentry
 
     async def _async_update_data(self) -> WAQIAirQuality:
+        """Fetch data from WAQI."""
         try:
             return await self._client.get_by_station_number(
                 self.subentry.data[CONF_STATION_NUMBER]

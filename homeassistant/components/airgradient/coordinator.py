@@ -63,6 +63,7 @@ class AirGradientCoordinator(DataUpdateCoordinator[AirGradientData]):
             ) from error
 
     async def _async_update_data(self) -> AirGradientData:
+        """Fetch data from AirGradient."""
         try:
             measures = await self.client.get_current_measures()
             config = await self.client.get_config()

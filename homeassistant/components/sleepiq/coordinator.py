@@ -41,6 +41,7 @@ class SleepIQDataUpdateCoordinator(DataUpdateCoordinator[None]):
         self.client = client
 
     async def _async_update_data(self) -> None:
+        """Fetch SleepIQ bed status data."""
         tasks = [self.client.fetch_bed_statuses()] + [
             bed.foundation.update_foundation_status()
             for bed in self.client.beds.values()
@@ -70,6 +71,7 @@ class SleepIQPauseUpdateCoordinator(DataUpdateCoordinator[None]):
         self.client = client
 
     async def _async_update_data(self) -> None:
+        """Fetch SleepIQ pause mode data."""
         await asyncio.gather(
             *[bed.fetch_pause_mode() for bed in self.client.beds.values()]
         )

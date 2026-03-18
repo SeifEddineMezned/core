@@ -73,6 +73,7 @@ class OpenUvProtectionWindowCoordinator(OpenUvCoordinator):
     _reprocess_listener: CALLBACK_TYPE | None = None
 
     async def _async_update_data(self) -> dict[str, Any]:
+        """Fetch and process UV protection window data."""
         data = await super()._async_update_data()
 
         for key in ("from_time", "to_time", "from_uv", "to_uv"):

@@ -44,6 +44,7 @@ class PointDataUpdateCoordinator(DataUpdateCoordinator[dict[str, dict[str, Any]]
         self.data: dict[str, dict[str, Any]] = {}
 
     async def _async_update_data(self) -> dict[str, dict[str, Any]]:
+        """Fetch data from Point."""
         if not await self.point.update():
             raise UpdateFailed("Failed to fetch data from Point")
 

@@ -59,6 +59,7 @@ class DropletDataCoordinator(DataUpdateCoordinator[None]):
                 return
 
     async def _async_update_data(self) -> None:
+        """Fetch data from Droplet."""
         if not self.droplet.connected:
             raise UpdateFailed(
                 translation_domain=DOMAIN, translation_key="connection_error"

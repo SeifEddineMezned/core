@@ -178,6 +178,7 @@ class CoilCoordinator(ContextCoordinator[dict[int, CoilData], int]):
         return await self.connection.read_coil(coil)
 
     async def _async_update_data(self) -> dict[int, CoilData]:
+        """Fetch data from NIBE heat pump."""
         self.task = asyncio.current_task()
         try:
             return await self._async_update_data_internal()

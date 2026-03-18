@@ -54,6 +54,7 @@ class MastodonCoordinator(DataUpdateCoordinator[Account]):
         self.client = client
 
     async def _async_update_data(self) -> Account:
+        """Fetch data from Mastodon."""
         try:
             account: Account = await self.hass.async_add_executor_job(
                 self.client.account_verify_credentials

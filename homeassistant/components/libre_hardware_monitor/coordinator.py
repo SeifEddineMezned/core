@@ -71,6 +71,7 @@ class LibreHardwareMonitorCoordinator(DataUpdateCoordinator[LibreHardwareMonitor
         self._is_deprecated_version: bool | None = None
 
     async def _async_update_data(self) -> LibreHardwareMonitorData:
+        """Fetch data from LibreHardwareMonitor."""
         try:
             lhm_data = await self._api.get_data()
         except LibreHardwareMonitorConnectionError as err:

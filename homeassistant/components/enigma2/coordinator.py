@@ -102,5 +102,6 @@ class Enigma2UpdateCoordinator(DataUpdateCoordinator[OpenWebIfStatus]):
             self.device_info[ATTR_IDENTIFIERS] = {(DOMAIN, self.unique_id)}
 
     async def _async_update_data(self) -> OpenWebIfStatus:
+        """Fetch data from Enigma2."""
         await self.device.update()
         return self.device.status

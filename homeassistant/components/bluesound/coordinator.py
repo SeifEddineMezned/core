@@ -111,6 +111,7 @@ class BluesoundCoordinator(DataUpdateCoordinator[BluesoundData]):
         self.config_entry.async_on_unload(cancel_task(presets_and_inputs_loop_task))
 
     async def _async_update_data(self) -> BluesoundData:
+        """Return current Bluesound data."""
         return self.data
 
     async def _poll_presets_and_inputs_loop(self) -> None:

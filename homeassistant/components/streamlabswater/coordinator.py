@@ -45,6 +45,7 @@ class StreamlabsCoordinator(DataUpdateCoordinator[dict[str, StreamlabsData]]):
         self.client = client
 
     async def _async_update_data(self) -> dict[str, StreamlabsData]:
+        """Fetch data from Streamlabs Water."""
         return await self.hass.async_add_executor_job(self._update_data)
 
     def _update_data(self) -> dict[str, StreamlabsData]:

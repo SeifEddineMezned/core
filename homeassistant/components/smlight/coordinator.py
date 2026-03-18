@@ -105,6 +105,7 @@ class SmBaseDataUpdateCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
             )
 
     async def _async_update_data(self) -> _DataT:
+        """Fetch data from SMLIGHT."""
         try:
             return await self._internal_update_data()
         except SmlightAuthError as err:

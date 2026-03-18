@@ -31,4 +31,5 @@ class YouLessCoordinator(DataUpdateCoordinator[None]):
         self.device = device
 
     async def _async_update_data(self) -> None:
+        """Fetch data from YouLess."""
         await self.hass.async_add_executor_job(self.device.update)

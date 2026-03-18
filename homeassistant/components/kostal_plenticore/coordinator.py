@@ -213,6 +213,7 @@ class ProcessDataUpdateCoordinator(
     """Implementation of PlenticoreUpdateCoordinator for process data."""
 
     async def _async_update_data(self) -> dict[str, dict[str, str]]:
+        """Fetch process data from Kostal Plenticore."""
         client = self._plenticore.client
 
         if not self._fetch or client is None:
@@ -237,6 +238,7 @@ class SettingDataUpdateCoordinator(
     """Implementation of PlenticoreUpdateCoordinator for settings data."""
 
     async def _async_update_data(self) -> Mapping[str, Mapping[str, str]]:
+        """Fetch settings data from Kostal Plenticore."""
         if (client := self._plenticore.client) is None:
             return {}
 
@@ -311,6 +313,7 @@ class SelectDataUpdateCoordinator(
     """Implementation of PlenticoreUpdateCoordinator for select data."""
 
     async def _async_update_data(self) -> dict[str, dict[str, str]]:
+        """Fetch select data from Kostal Plenticore."""
         if self._plenticore.client is None:
             return {}
 

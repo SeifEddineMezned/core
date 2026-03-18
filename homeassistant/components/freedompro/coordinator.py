@@ -41,6 +41,7 @@ class FreedomproDataUpdateCoordinator(DataUpdateCoordinator[list[dict[str, Any]]
         )
 
     async def _async_update_data(self):
+        """Fetch data from Freedompro."""
         if self._devices is None:
             result = await get_list(
                 aiohttp_client.async_get_clientsession(self._hass), self._api_key

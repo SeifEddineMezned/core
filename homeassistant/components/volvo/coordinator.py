@@ -221,6 +221,7 @@ class VolvoVerySlowIntervalCoordinator(VolvoBaseCoordinator):
         ]
 
     async def _async_update_data(self) -> CoordinatorData:
+        """Fetch and enrich vehicle data from Volvo."""
         data = await super()._async_update_data()
 
         # Add static values

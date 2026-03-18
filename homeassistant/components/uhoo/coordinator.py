@@ -30,6 +30,7 @@ class UhooDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Device]]):
         )
 
     async def _async_update_data(self) -> dict[str, Device]:
+        """Fetch data from uHoo."""
         try:
             await self.client.login()
             if self.client.devices:

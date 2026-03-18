@@ -35,6 +35,7 @@ class MotionEyeUpdateCoordinator(DataUpdateCoordinator[dict[str, Any] | None]):
         self.client = client
 
     async def _async_update_data(self) -> dict[str, Any] | None:
+        """Fetch data from MotionEye."""
         try:
             return await self.client.async_get_cameras()
         except MotionEyeClientError as exc:

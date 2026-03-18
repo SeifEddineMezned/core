@@ -53,6 +53,7 @@ class QBittorrentDataCoordinator(DataUpdateCoordinator[SyncMainDataDictionary]):
         )
 
     async def _async_update_data(self) -> SyncMainDataDictionary:
+        """Fetch data from qBittorrent."""
         try:
             data = await self.hass.async_add_executor_job(self.client.sync_maindata)
             self._is_alternative_mode_enabled = (

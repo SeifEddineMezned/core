@@ -35,6 +35,7 @@ class FAADataUpdateCoordinator(DataUpdateCoordinator[Airport]):
         self.data = Airport(code, self.session)
 
     async def _async_update_data(self) -> Airport:
+        """Fetch FAA data."""
         try:
             async with asyncio.timeout(10):
                 await self.data.update()

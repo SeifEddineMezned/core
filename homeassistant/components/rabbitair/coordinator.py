@@ -60,6 +60,7 @@ class RabbitAirDataUpdateCoordinator(DataUpdateCoordinator[State]):
         )
 
     async def _async_update_data(self) -> State:
+        """Fetch data from RabbitAir."""
         return await self.device.get_state()
 
     async def _async_refresh(

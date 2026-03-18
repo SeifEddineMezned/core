@@ -60,6 +60,7 @@ class OpenSkyDataUpdateCoordinator(DataUpdateCoordinator[int]):
         self._altitude = config_entry.options.get(CONF_ALTITUDE, DEFAULT_ALTITUDE)
 
     async def _async_update_data(self) -> int:
+        """Fetch data from OpenSky."""
         try:
             response = await self._opensky.get_states(bounding_box=self._bounding_box)
         except OpenSkyError as exc:

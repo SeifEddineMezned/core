@@ -38,6 +38,7 @@ class SyncthruCoordinator(DataUpdateCoordinator[SyncThru]):
         )
 
     async def _async_update_data(self) -> SyncThru:
+        """Fetch data from SyncThru."""
         async with asyncio.timeout(10):
             await self.syncthru.update()
         if self.syncthru.is_unknown_state():

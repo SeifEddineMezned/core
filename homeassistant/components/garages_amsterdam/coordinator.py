@@ -35,6 +35,7 @@ class GaragesAmsterdamDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Gara
         self.client = client
 
     async def _async_update_data(self) -> dict[str, Garage]:
+        """Fetch data from Garages Amsterdam."""
         return {
             garage.garage_name: garage
             for garage in await self.client.all_garages(vehicle=VehicleType.CAR)

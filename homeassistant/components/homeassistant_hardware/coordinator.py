@@ -45,6 +45,7 @@ class FirmwareUpdateCoordinator(DataUpdateCoordinator[FirmwareManifest]):
         self.client = FirmwareUpdateClient(url, session)
 
     async def _async_update_data(self) -> FirmwareManifest:
+        """Fetch firmware manifest from Home Assistant Hardware."""
         try:
             return await self.client.async_update_data()
         except ManifestMissing as err:

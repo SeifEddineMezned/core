@@ -33,4 +33,5 @@ class DaikinCoordinator(DataUpdateCoordinator[None]):
         self.device = device
 
     async def _async_update_data(self) -> None:
+        """Fetch data from Daikin."""
         await self.device.update_status()

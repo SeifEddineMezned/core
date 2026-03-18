@@ -435,6 +435,7 @@ class RoborockWashingMachineUpdateCoordinator(
     async def _async_update_data(
         self,
     ) -> dict[RoborockZeoProtocol, StateType]:
+        """Fetch data from Roborock washing machine."""
         try:
             return await self.api.query_values(self.request_protocols)
         except RoborockException as ex:
@@ -473,6 +474,7 @@ class RoborockWetDryVacUpdateCoordinator(
     async def _async_update_data(
         self,
     ) -> dict[RoborockDyadDataProtocol, StateType]:
+        """Fetch data from Roborock wet dry vac."""
         try:
             return await self.api.query_values(self.request_protocols)
         except RoborockException as ex:
@@ -552,6 +554,7 @@ class RoborockB01Q7UpdateCoordinator(RoborockDataUpdateCoordinatorB01):
     async def _async_update_data(
         self,
     ) -> B01Props:
+        """Fetch data from Roborock Q7."""
         try:
             data = await self.api.query_values(self.request_protocols)
         except RoborockException as ex:

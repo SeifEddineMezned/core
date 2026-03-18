@@ -110,6 +110,7 @@ class SpotifyCoordinator(DataUpdateCoordinator[SpotifyCoordinatorData]):
             raise UpdateFailed("Error communicating with Spotify API") from err
 
     async def _async_update_data(self) -> SpotifyCoordinatorData:
+        """Fetch playback data from Spotify."""
         self.update_interval = UPDATE_INTERVAL
         try:
             current = await self.client.get_playback()
@@ -195,6 +196,7 @@ class SpotifyDeviceCoordinator(DataUpdateCoordinator[list[Device]]):
         self._client = client
 
     async def _async_update_data(self) -> list[Device]:
+        """Fetch device list from Spotify."""
         try:
             return await self._client.get_devices()
         except SpotifyConnectionError as err:

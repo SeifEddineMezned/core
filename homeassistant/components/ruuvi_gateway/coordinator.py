@@ -40,6 +40,7 @@ class RuuviGatewayUpdateCoordinator(DataUpdateCoordinator[list[TagData]]):
         self.last_tag_datas: dict[str, TagData] = {}
 
     async def _async_update_data(self) -> list[TagData]:
+        """Fetch data from Ruuvi Gateway."""
         changed_tag_datas: list[TagData] = []
         async with get_async_client(self.hass) as client:
             data = await get_gateway_history_data(

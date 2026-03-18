@@ -51,6 +51,7 @@ class AlertUpdateCoordinator(DataUpdateCoordinator[dict[str, IntegrationAlert]])
         self.supervisor = is_hassio(self.hass)
 
     async def _async_update_data(self) -> dict[str, IntegrationAlert]:
+        """Fetch Home Assistant alerts."""
         response = await async_get_clientsession(self.hass).get(
             "https://alerts.home-assistant.io/alerts.json",
             timeout=REQUEST_TIMEOUT,
