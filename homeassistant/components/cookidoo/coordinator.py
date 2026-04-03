@@ -79,6 +79,7 @@ class CookidooDataUpdateCoordinator(DataUpdateCoordinator[CookidooData]):
             ) from e
 
     async def _async_update_data(self) -> CookidooData:
+        """Fetch data from Cookidoo."""
         try:
             ingredient_items = await self.cookidoo.get_ingredient_items()
             additional_items = await self.cookidoo.get_additional_items()

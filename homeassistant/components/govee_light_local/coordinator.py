@@ -112,6 +112,7 @@ class GoveeLocalApiCoordinator(DataUpdateCoordinator[list[GoveeDevice]]):
         return devices
 
     async def _async_update_data(self) -> list[GoveeDevice]:
+        """Fetch data from Govee."""
         for controller in self._controllers:
             controller.send_update_message()
         return self.devices

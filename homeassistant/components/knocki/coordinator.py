@@ -32,6 +32,7 @@ class KnockiCoordinator(DataUpdateCoordinator[dict[int, Trigger]]):
         self._known_triggers: set[tuple[str, int]] = set()
 
     async def _async_update_data(self) -> dict[int, Trigger]:
+        """Fetch data from Knocki."""
         try:
             triggers = await self.client.get_triggers()
         except KnockiConnectionError as exc:

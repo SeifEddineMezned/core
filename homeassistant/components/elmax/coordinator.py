@@ -99,6 +99,7 @@ class ElmaxCoordinator(DataUpdateCoordinator[PanelStatus]):
         self._client = client
 
     async def _async_update_data(self):
+        """Fetch data from Elmax."""
         try:
             async with timeout(DEFAULT_TIMEOUT):
                 # The following command might fail in case of the panel is offline.

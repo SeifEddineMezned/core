@@ -49,6 +49,7 @@ class HypontechDataCoordinator(DataUpdateCoordinator[HypontechCoordinatorData]):
         self.account_id = account_id
 
     async def _async_update_data(self) -> HypontechCoordinatorData:
+        """Fetch data from Hypontech."""
         try:
             overview = await self.api.get_overview()
             plants = await self.api.get_list()

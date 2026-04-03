@@ -34,6 +34,7 @@ class NanoleafCoordinator(DataUpdateCoordinator[None]):
         self.nanoleaf = nanoleaf
 
     async def _async_update_data(self) -> None:
+        """Fetch data from Nanoleaf."""
         try:
             await self.nanoleaf.get_info()
         except Unavailable as err:

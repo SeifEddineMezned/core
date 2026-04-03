@@ -86,6 +86,7 @@ class StarlinkUpdateCoordinator(DataUpdateCoordinator[StarlinkData]):
         )
 
     async def _async_update_data(self) -> StarlinkData:
+        """Fetch data from Starlink."""
         async with asyncio.timeout(4):
             try:
                 return await self.hass.async_add_executor_job(self._get_starlink_data)

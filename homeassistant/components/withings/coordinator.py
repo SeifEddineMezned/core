@@ -82,6 +82,7 @@ class WithingsDataUpdateCoordinator[_DataT](DataUpdateCoordinator[_DataT]):
         await self.async_request_refresh()
 
     async def _async_update_data(self) -> _DataT:
+        """Fetch data from Withings."""
         try:
             return await self._internal_update_data()
         except (WithingsUnauthorizedError, WithingsAuthenticationFailedError) as exc:

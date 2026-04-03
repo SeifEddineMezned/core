@@ -67,6 +67,7 @@ class IsraelRailDataUpdateCoordinator(DataUpdateCoordinator[list[DataConnection]
         self._destination = destination
 
     async def _async_update_data(self) -> list[DataConnection]:
+        """Fetch data from Israel Rail."""
         try:
             train_routes = await self.hass.async_add_executor_job(
                 self._train_schedule.query,

@@ -65,6 +65,7 @@ class QbusControllerCoordinator(DataUpdateCoordinator[QbusMqttDevice | None]):
         )
 
     async def _async_update_data(self) -> QbusMqttDevice | None:
+        """Return current Qbus data."""
         return self._controller
 
     def shutdown(self, event: Event | None = None) -> None:

@@ -69,6 +69,7 @@ class HomeassistantAnalyticsDataUpdateCoordinator(DataUpdateCoordinator[Analytic
         ]
 
     async def _async_update_data(self) -> AnalyticsData:
+        """Fetch analytics data."""
         try:
             apps_data = (
                 await self._client.get_addons()

@@ -107,6 +107,7 @@ class EheimDigitalUpdateCoordinator(
             raise ConfigEntryNotReady from err
 
     async def _async_update_data(self) -> dict[str, EheimDigitalDevice]:
+        """Fetch data from EHEIM Digital."""
         try:
             await self.hub.update()
         except ClientError as ex:

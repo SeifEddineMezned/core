@@ -142,6 +142,7 @@ class NiceGOUpdateCoordinator(DataUpdateCoordinator[dict[str, NiceGODevice]]):
         )
 
     async def _async_update_data(self) -> dict[str, NiceGODevice]:
+        """Return current Nice G.O. data."""
         return self.data
 
     async def _async_setup(self) -> None:

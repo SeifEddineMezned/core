@@ -48,6 +48,7 @@ class ToloSaunaUpdateCoordinator(DataUpdateCoordinator[ToloSaunaData]):
         )
 
     async def _async_update_data(self) -> ToloSaunaData:
+        """Fetch data from TOLO sauna."""
         return await self.hass.async_add_executor_job(self._get_tolo_sauna_data)
 
     def _get_tolo_sauna_data(self) -> ToloSaunaData:

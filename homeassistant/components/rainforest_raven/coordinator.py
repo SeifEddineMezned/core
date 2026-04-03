@@ -111,6 +111,7 @@ class RAVEnDataCoordinator(DataUpdateCoordinator):
         await super().async_shutdown()
 
     async def _async_update_data(self) -> dict[str, Any]:
+        """Fetch data from Rainforest Raven."""
         try:
             device = await self._get_device()
             async with asyncio.timeout(5):

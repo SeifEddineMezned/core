@@ -82,6 +82,7 @@ class TwitchCoordinator(DataUpdateCoordinator[dict[str, TwitchUpdate]]):
         self.users.append(self.current_user)  # Add current_user to users list.
 
     async def _async_update_data(self) -> dict[str, TwitchUpdate]:
+        """Fetch data from Twitch."""
         await self.session.async_ensure_token_valid()
         await self.twitch.set_user_authentication(
             self.session.token["access_token"],

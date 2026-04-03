@@ -48,6 +48,7 @@ class NYTGamesCoordinator(DataUpdateCoordinator[NYTGamesData]):
         self.client = client
 
     async def _async_update_data(self) -> NYTGamesData:
+        """Fetch data from NYT Games."""
         try:
             stats_data = await self.client.get_latest_stats()
             connections_data = await self.client.get_connections()

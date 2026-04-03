@@ -49,6 +49,7 @@ class UpCloudDataUpdateCoordinator(
         )
 
     async def _async_update_data(self) -> dict[str, upcloud_api.Server]:
+        """Fetch data from UpCloud."""
         return {
             x.uuid: x
             for x in await self.hass.async_add_executor_job(

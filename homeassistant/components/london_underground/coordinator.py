@@ -39,6 +39,7 @@ class LondonTubeCoordinator(DataUpdateCoordinator[dict[str, dict[str, str]]]):
         self._data = data
 
     async def _async_update_data(self) -> dict[str, dict[str, str]]:
+        """Fetch data from London Underground."""
         async with asyncio.timeout(10):
             await self._data.update()
             return cast(dict[str, dict[str, str]], self._data.data)

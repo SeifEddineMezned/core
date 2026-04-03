@@ -53,6 +53,7 @@ class FressnapfTrackerDataUpdateCoordinator(DataUpdateCoordinator[Tracker]):
         self.data = initial_data
 
     async def _async_update_data(self) -> Tracker:
+        """Fetch data from Fressnapf Tracker."""
         try:
             return await self.client.get_tracker()
         except FressnapfTrackerInvalidDeviceTokenError as exception:

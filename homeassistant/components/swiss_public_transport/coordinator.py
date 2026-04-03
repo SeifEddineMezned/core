@@ -85,6 +85,7 @@ class SwissPublicTransportDataUpdateCoordinator(
         return None
 
     async def _async_update_data(self) -> list[DataConnection]:
+        """Fetch data from Swiss Public Transport."""
         return await self.fetch_connections(limit=CONNECTIONS_COUNT)
 
     async def fetch_connections(self, limit: int) -> list[DataConnection]:

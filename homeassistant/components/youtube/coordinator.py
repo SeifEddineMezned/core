@@ -49,6 +49,7 @@ class YouTubeDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         )
 
     async def _async_update_data(self) -> dict[str, Any]:
+        """Fetch data from YouTube."""
         youtube = await self._auth.get_resource()
         res = {}
         channel_ids = self.config_entry.options[CONF_CHANNELS]

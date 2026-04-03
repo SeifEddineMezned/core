@@ -53,6 +53,7 @@ class LastFMDataUpdateCoordinator(DataUpdateCoordinator[dict[str, LastFMUserData
         self._client = LastFMNetwork(api_key=config_entry.options[CONF_API_KEY])
 
     async def _async_update_data(self) -> dict[str, LastFMUserData]:
+        """Fetch data from LastFM."""
         res = {}
         for username in self.config_entry.options[CONF_USERS]:
             data = await self.hass.async_add_executor_job(self._get_user_data, username)
