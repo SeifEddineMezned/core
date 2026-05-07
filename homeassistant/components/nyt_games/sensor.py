@@ -20,6 +20,8 @@ from homeassistant.helpers.typing import StateType
 from .coordinator import NYTGamesConfigEntry, NYTGamesCoordinator
 from .entity import ConnectionsEntity, SpellingBeeEntity, WordleEntity
 
+PARALLEL_UPDATES = 0
+
 
 @dataclass(frozen=True, kw_only=True)
 class NYTGamesWordleSensorEntityDescription(SensorEntityDescription):
