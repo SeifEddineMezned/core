@@ -1,7 +1,9 @@
 {
   "config": {
     "abort": {
-      "already_configured": "[%key:common::config_flow::abort::already_configured_account%]"
+      "already_configured": "[%key:common::config_flow::abort::already_configured_account%]",
+      "reauth_successful": "[%key:common::config_flow::abort::reauth_successful%]",
+      "wrong_account": "[%key:common::config_flow::abort::wrong_account%]"
     },
     "error": {
       "cannot_connect": "[%key:common::config_flow::error::cannot_connect%]",
@@ -18,6 +20,15 @@
         },
         "data_description": {
           "token": "The NYT Games NYT-S cookie value."
+        }
+      },
+      "reauth_confirm": {
+        "description": "[%key:common::config_flow::description::reauth_confirm%]",
+        "data": {
+          "token": "[%key:component::nyt_games::config::step::user::data::token%]"
+        },
+        "data_description": {
+          "token": "[%key:component::nyt_games::config::step::user::data_description::token%]"
         }
       }
     }
